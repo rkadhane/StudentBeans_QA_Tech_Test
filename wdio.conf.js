@@ -22,16 +22,18 @@ exports.config = {
   capabilities: [
     {
       maxInstances: 1,
-      browserName: 'chrome',
-      'goog:chromeOptions': {
+      browserName: "firefox"
+     // browserName: 'chrome',
+      
+      //'goog:chromeOptions': {
         // to run chrome headless the following flags are required
         // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        args: [
-          '--no-sandbox',
-          '--disable-dev-shm-usage',
-          '--remote-debugging-port=9222'
-        ]
-      }
+       // args: [
+         // '--no-sandbox',
+         // '--disable-dev-shm-usage',
+         // '--remote-debugging-port=9222'
+       // ]
+     // }
     }
   ],
   // ===================
@@ -59,16 +61,9 @@ exports.config = {
   // Default request retries count
   connectionRetryCount: 3,
 
-  services: [
-    [
-      'chromedriver',
-      {
-        logFileName: 'wdio-chromedriver.log', // default
-        outputDir: 'test-results/driver-logs', // overwrites the config.outputDir
-        args: ['--silent']
-      }
-    ]
-  ],
+  services: [  
+      'selenium-standalone'
+    ],
 
   framework: 'cucumber',
 
